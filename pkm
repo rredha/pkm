@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+_TEMPLATES_DIR="/home/disco/obsidian/cerebrum/.scripts/cerebrum/templates/"
+_ZETTL_DIR="/home/disco/obsidian/cerebrum/zettelkasten/"
+_FLEETING_NOTE_TEMPLATE="$_TEMPLATES_DIR""fleeting.md"
+_NOTE_NAME=$1
+
+cat "$_FLEETING_NOTE_TEMPLATE" > "$_ZETTL_DIR""$_NOTE_NAME".md
+#echo "$_ZETTL_DIR""$_NOTE_NAME".md

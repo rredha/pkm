@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+PKM_DIR="$HOME"/$1
+TEMPLATE_DIR="$PKM_DIR""/templates/"
+ENV_EXIST=$(grep $PKM_DIR ~/.bashrc | wc -l)
+
+function set_env(){
+if [[ -d $PKM_DIR && -d $TEMPLATE_DIR ]]; then
+	source ~/.bashrc
+
+	if [[ $ENV_EXIST == 0 ]]; then
+		echo "Setting Environnement variable in .bashrc"
+		echo 'export PKM_DIR='"$PKM_DIR" >> ~/.bashrc	
+		return 0
+	else	
+		echo "Environnement aleardy set !"
+		return 1
+	fi
+else 
+	echo "Template directory not found !"
+	return 2
+fi
+}
+
+set_env
